@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Hostplus Transaction Exporter",
+  "version": "1.2.0",
+  "description": "Sniffs Link Group member search requests on mol.hostplus.com.au and exports JSON or Wealthfolio CSV.",
+  "permissions": ["tabs", "scripting", "downloads", "storage"],
+  "host_permissions": [
+    "*://mol.hostplus.com.au/*",
+    "*://*.hostplus.com.au/*",
+    "*://*.linkgroup.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://mol.hostplus.com.au/*",
+        "*://*.hostplus.com.au/*",
+        "*://*.linkgroup.com/*"
+      ],
+      "js": ["sniffer.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

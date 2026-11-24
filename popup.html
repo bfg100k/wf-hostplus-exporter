@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        width: 350px;
+        padding: 12px;
+        margin: 0;
+      }
+      label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      input,
+      select {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 6px 8px;
+        margin-bottom: 10px;
+        font-size: 12px;
+      }
+      .date-row {
+        display: flex;
+        gap: 8px;
+      }
+      .date-field {
+        flex: 1;
+      }
+      button {
+        width: 100%;
+        padding: 8px 10px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      pre {
+        background: #f4f4f5;
+        padding: 8px;
+        border-radius: 6px;
+        font-size: 11px;
+        white-space: pre-wrap;
+        word-break: break-word;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="openHostplus">1. Open Hostplus (mol.hostplus.com.au)</button>
+
+    <div class="date-row">
+      <div class="date-field">
+        <label for="fromDate">From Date</label>
+        <input id="fromDate" type="date" />
+      </div>
+      <div class="date-field">
+        <label for="toDate">To Date</label>
+        <input id="toDate" type="date" />
+      </div>
+    </div>
+
+    <label for="exportFormat">Export Format</label>
+    <select id="exportFormat">
+      <option value="both">Both — CSV + JSON Backup</option>
+      <option value="csv">CSV for Wealthfolio (.csv)</option>
+      <option value="json">JSON Backup (.json)</option>
+    </select>
+
+    <button id="exportData">2. Export Transactions</button>
+    <pre id="status">Ready. Log in with TOTP and open Transaction History.</pre>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
